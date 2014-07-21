@@ -4,6 +4,7 @@ const Lang = imports.lang;
 const GLib = imports.gi.GLib;
 const Gettext = imports.gettext.domain('cinnamon-applets');
 const _ = Gettext.gettext;
+const APPLET_ICON = global.userdatadir + "/applets/california@highwind/cal.svg";
 
 function MyApplet(orientation, panel_height) {
     this._init(orientation, panel_height);
@@ -16,7 +17,7 @@ MyApplet.prototype = {
         Applet.IconApplet.prototype._init.call(this, orientation, panel_height);
         
 		  try{
-          this.set_applet_icon_name("stock_calendar");
+          this.set_applet_icon_path(APPLET_ICON);
           this.set_applet_tooltip(_("open calendar"));
                       }
 	     catch(e){
